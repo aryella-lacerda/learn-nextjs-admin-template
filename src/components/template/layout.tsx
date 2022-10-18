@@ -14,10 +14,12 @@ export const Layout = ({
   subtitle,
 }: PropsWithChildren<Props>) => {
   return (
-    <div>
+    <div className="flex h-screen w-screen">
       <SideMenu />
-      <Header title={title} subtitle={subtitle} />
-      <Content>{children}</Content>
+      <div className="flex flex-col flex-1 p-7 bg-gray-300 dark:bg-gray-800">
+        <Header title={title} subtitle={subtitle} />
+        <Content>{children}</Content>
+      </div>
     </div>
   );
 };
