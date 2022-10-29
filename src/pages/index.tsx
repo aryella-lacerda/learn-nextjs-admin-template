@@ -4,7 +4,7 @@ import { Layout } from "../components/template";
 const Home: NextPage = () => {
   return (
     <Layout title="Aryella Lacerda" subtitle="Software Engineer">
-      <h3>Conteúdo</h3>
+      <h3>Home page</h3>
     </Layout>
   );
 };

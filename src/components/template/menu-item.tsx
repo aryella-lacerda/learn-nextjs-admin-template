@@ -1,4 +1,5 @@
 import Link from "next/link";
+import React, { ComponentRef } from "react";
 import { ReactNode } from "react";
 
 type Props = {
@@ -9,21 +10,6 @@ type Props = {
   className?: string;
 };
 
-type ItemProps = {
-  text: string;
-  icon: ReactNode;
-  className?: string;
-};
-
-const Item = ({ icon, text, className }: ItemProps) => (
-  <a
-    className={`flex flex-col justify-center items-center text-gray-600 dark:text-gray-50 w-24 h-24 ${className}`}
-  >
-    {icon}
-    <span className="text-xs font-light">{text}</span>
-  </a>
-);
-
 export const MenuItem = ({ text, icon, url, onClick, className }: Props) => {
   return (
     <li
@@ -32,10 +18,20 @@ export const MenuItem = ({ text, icon, url, onClick, className }: Props) => {
     >
       {url ? (
         <Link href={url}>
-          <Item icon={icon} text={text} className={className} />
+          <a
+            className={`flex flex-col justify-center items-center text-gray-600 dark:text-gray-50 w-24 h-24 ${className}`}
+          >
+            {icon}
+            <span className="text-xs font-light">{text}</span>
+          </a>
         </Link>
       ) : (
-        <Item icon={icon} text={text} className={className} />
+        <a
+          className={`flex flex-col justify-center items-center text-gray-600 dark:text-gray-50 w-24 h-24 ${className}`}
+        >
+          {icon}
+          <span className="text-xs font-light">{text}</span>
+        </a>
       )}
     </li>
   );

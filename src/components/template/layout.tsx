@@ -1,4 +1,5 @@
 import { PropsWithChildren } from "react";
+import { useTheme } from "../../contexts/theme-context";
 import { Content } from "./content";
 import { Header } from "./header";
 import { SideMenu } from "./side-menu";
@@ -13,8 +14,10 @@ export const Layout = ({
   title,
   subtitle,
 }: PropsWithChildren<Props>) => {
+  const { theme } = useTheme();
+
   return (
-    <div className="dark flex h-screen w-screen">
+    <div className={`${theme} flex h-screen w-screen`}>
       <SideMenu />
       <div className="flex flex-col flex-1 p-7 bg-gray-300 dark:bg-gray-800">
         <Header title={title} subtitle={subtitle} />
