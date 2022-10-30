@@ -13,7 +13,7 @@ type ValueOf<T> = T[keyof T];
 
 type Themes = ValueOf<typeof THEMES>;
 
-type ThemeContext = {
+export type ThemeContext = {
   THEMES: typeof THEMES;
   theme: Themes;
   setTheme: (theme: Themes) => void;
