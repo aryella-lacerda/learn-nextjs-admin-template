@@ -2,8 +2,11 @@ import { useState } from "react";
 import Image from "next/image";
 import { AuthenticationInput } from "../components/authentication/authentication-input";
 import { WarningIcon } from "../components/icons";
+import { useAuth } from "../contexts/auth-context";
 
 const Authentication = () => {
+  const { loginWithGoogle } = useAuth();
+
   const [mode, setMode] = useState<"signin" | "signup">("signin");
   const [email, setEmail] = useState<string>();
   const [password, setPassword] = useState<string>();
@@ -23,6 +26,7 @@ const Authentication = () => {
     <div className="flex h-screen items-center justify-center">
       <div className="hidden md:block md:w-1/2 lg:w-2/3 h-screen relative">
         <Image
+          priority
           unoptimized
           layout="fill"
           objectFit="cover"
@@ -70,7 +74,7 @@ const Authentication = () => {
         <hr className="my-6 mx-4 dark:border-gray-400" />
 
         <button
-          onClick={submit}
+          onClick={loginWithGoogle}
           className="bg-red-700 hover:bg-red-500 text-white rounded-md w-full py-3 px-2"
         >
           {mode === "signup" ? "Sign up" : "Sign in"} with Google

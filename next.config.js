@@ -12,6 +12,10 @@ const nextConfig = {
         hostname: "source.unsplash.com",
         pathname: "/random",
       },
+      {
+        protocol: "https",
+        hostname: "**.googleusercontent.com",
+      },
     ],
   },
 };

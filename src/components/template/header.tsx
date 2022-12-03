@@ -1,3 +1,4 @@
+import { Avatar } from "./avatar";
 import { ThemeToggle } from "./theme-toggle";
 import { Title } from "./title";
 
@@ -10,8 +11,9 @@ export const Header = ({ title, subtitle }: Props) => {
   return (
     <div className="flex justify-between">
       <Title title={title} subtitle={subtitle} />
-      <div className="">
+      <div className="flex items-center">
         <ThemeToggle />
+        <Avatar />
       </div>
     </div>
   );
