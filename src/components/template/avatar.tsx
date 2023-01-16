@@ -1,6 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
-
 import { useAuth } from "../../contexts/auth-context";
 
 export const Avatar = () => {

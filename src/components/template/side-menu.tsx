@@ -1,3 +1,5 @@
+import { useRouter } from "next/router";
+import { useAuth } from "../../contexts/auth-context";
 import {
   HomeIcon,
   NotificationsIcon,
@@ -8,6 +10,9 @@ import { Logo } from "./logo";
 import { MenuItem } from "./menu-item";
 
 export const SideMenu = () => {
+  const router = useRouter();
+  const { logout } = useAuth();
+
   return (
     <aside className="flex flex-col">
       <div className="flex flex-col justify-center items-center w-24 h-24 bg-gradient-to-r from-orange-400 to-red-700">
@@ -25,7 +30,11 @@ export const SideMenu = () => {
       <div>
         <ul className="flex-col flex-grow bg-gray-100 dark:bg-gray-900">
           <MenuItem
-            onClick={() => console.log("Sign out")}
+            onClick={async () => {
+              await logout();
+              router.push("/authentication");
+              console.log("Sign out");
+            }}
             text="Sign out"
             icon={SignOutIcon}
             className="text-red-500 dark:text-red-400 hover:bg-red-800 hover:text-white dark:hover:text-white"
